@@ -71,12 +71,13 @@ void EvenSeive(const int* Arrptr, int len) {
 }
 
 void DecimalToBinary(int num){
-    int minuscounter=0; if (num<0) {minuscounter=1; num=-num;}
-    int length=0, digit=1, startnum;    int OutArr[length];
-    do {digit=digit*2; length++;} while(digit<=num); 
-    startnum=i_sq_b(2, length-1);
+    int minuscounter=0; if (num<0) {minuscounter=1; num=-num;} //if input number is below than 0, make input to absolute number and write minus by counter 
+    int length=0, digit=1, startnum;    
+    do {digit=digit*2; length++;} while(digit<=num); //this line generates sufficient array length  
+    int OutArr[length]; 
+    startnum=i_sq_b(2, length-1); //start number equal 2^(length-1)
     for (int j=0;j<length;j++){
-        OutArr[j]= (startnum<=num) ? 1 : 0 ;
+        OutArr[j]= (startnum<=num) ? 1 : 0 ; // comparing 2^(length-j) and input-[Sum(i=0 to j-1)(2^i)]
         if (OutArr[j]==1) {num=num-startnum;}
         startnum=startnum/2;
     }
@@ -84,14 +85,14 @@ void DecimalToBinary(int num){
     for (int i=0;i<length;i++) {printf("%d", OutArr[i]);}  printf("\n");
 }
 
-int i_sq_b(int i, int n){
+int i_sq_b(int i, int b){ //this program generates i^b
     int output=1;
-    for (int count=0;count<n;count++) {output=output*i;}
+    for (int count=0;count<b;count++) {output=output*i;}
     return output;
 }
 
 void RelocationNumbers(int* Arrptr, int len){
-    int BecomeOutput[10]; int fromleft=0, fromright=9;
+    int BecomeOutput[len]; int fromleft=0, fromright=9;
     for(int i=0; i<len; i++){
         if (Arrptr[i]%2==1){
             BecomeOutput[fromleft]=Arrptr[i];   fromleft++; }
@@ -105,7 +106,7 @@ void RelocationNumbers(int* Arrptr, int len){
 
 void AscSort(int* Arrptr, int len){
     int temp, endPt=len;
-    for(int endPt=len;endPt>1;endPt--){
+    for( ;endPt>1;endPt--){
         for(int i=0;i<endPt-1;i++){
             if (Arrptr[i]>Arrptr[i+1]){
             temp=Arrptr[i+1];   Arrptr[i+1]=Arrptr[i];  Arrptr[i]=temp;
