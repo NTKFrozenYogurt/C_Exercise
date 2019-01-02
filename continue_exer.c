@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-int ProgramSelection(void);
 int Add_1_to_n(void);
 int EvenNumMultiple(void);
 int ABplusBAeq99(void);
@@ -9,12 +8,6 @@ int main(void){
     //break; // break를 포함하는 loop문의 작동을 stop
     //continue; // continue 이후 부분을 스킵하고, 다시 loop
 
-    ProgramSelection();
-
-    return 0;
-}
-
-int ProgramSelection(void){
     int opt;
     printf("1.addtion 1 to n \n2.EvenNumMultiplicationTable \n3.AB+BA=99 \nother input.quit \ninsert a number : ");
     scanf("%d", &opt);

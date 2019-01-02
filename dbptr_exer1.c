@@ -11,7 +11,7 @@ int main(void){
         *dptr로 pointer변수 ptr에 접근하며, **dptr로 pointer변수가 가리키는 변수 num에 접근한다. ( *(*ptr)로 표기하기도 한다.)
 
         pointer를 사용함으로서 변수값을 다른 함수에서 변경할 수 있었음. 
-        마찬가지로 double pointer를 사용함으로서 pointer가 가리키는 대상을 다른 함수에서 변경할 수 있음. 예제 Swapptr을 참조.   */
+        마찬가지로 double pointer를 사용함으로서 pointer가 가리키는 대상을 다른 함수에서 변경할 수 있음. 예제 Swap_with_ptr을 참조.   */
     
     int num1=10, num2=20;   
     int* ptr1=&num1; int* ptr2=&num2;
